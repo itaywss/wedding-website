@@ -30,6 +30,7 @@ typings/
 .npm
 .eslintcache
 .node_repl_history
+node_modules
 *.tgz
 .yarn-integrity
 .env

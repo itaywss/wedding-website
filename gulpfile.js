@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var deploy = require('gulp-gh-pages');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -24,6 +25,14 @@ gulp.task('minify-js', function () {
         .pipe(uglify())
         .pipe(rename({basename: 'scripts.min'}))
         .pipe(gulp.dest('./js'));
+});
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+    return gulp.src("./dist/**/*")
+        .pipe(deploy())
 });
 
 // default task
