@@ -223,9 +223,9 @@ $(document).ready(function () {
             $(document).ready(function() {
                 $.getJSON(SCRIPT_URL+"?callback=?",
                     {
-                        name:"populate_list",
-                        number: '5',
-                        ride: 'yes'
+                        name: document.getElementById("name").value,
+                        number: document.getElementById("extras").value,
+                        ride: document.getElementById("ride").value
                         },
                     function (data) {
                         alert(JSON.stringify(data));
