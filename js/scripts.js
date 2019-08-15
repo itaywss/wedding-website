@@ -187,20 +187,20 @@ $(document).ready(function () {
             title: "Shahar and Dror's Wedding",
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('Sep 18, 2019 19:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('Sep 18, 2019 00:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: 'צל הדומים, נאות קדומים, יער בן שמן',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues contact Mr. Amit Roy at +91 9435021804 or +91 7086018971."
+            description: "בוא תשמחו איתנו!"
         }
     });
 
@@ -214,20 +214,34 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+        if (MD5($('#invite_code').val()) !== '4b6db1c5-9ce6-4b1f-9687-e9c2aa999739'
+            && MD5($('#invite_code').val()) !== '4b6db1c5-9ce6-4b1f-9687-e9c2aa999739') {
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>מצטערים!</strong>הקוד הזמנה שהזנת אינו תקין.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbzUqz44wOat0DiGjRV1gUnRf4HRqlRARWggjvHKWvqniP7eVDG-/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html('');
-                    $('#rsvp-modal').modal('show');
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
+            var SCRIPT_URL = 'https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec';
+
+            $(document).ready(function() {
+                $.getJSON(SCRIPT_URL+"?callback=?",
+                    {
+                        name:"populate_list",
+                        number: '5',
+                        ride: 'yes'
+                        },
+                    function (data) {
+                        alert(JSON.stringify(data));
+                    });
+            });
+
+            // $.post('https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec', data)
+            //     .done(function (data) {
+            //         console.log(data);
+            //         $('#alert-wrapper').html('');
+            //         $('#rsvp-modal').modal('show');
+            //     })
+            //     .fail(function (data) {
+            //         console.log(data);
+            //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+            //     });
         }
     });
 
@@ -237,7 +251,7 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var itc_kol = {lat: 22.5932759, lng: 88.27027720000001};
+    var itc_kol = {lat: 31.947821, lng: 34.974092};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: itc_kol,
@@ -251,7 +265,7 @@ function initMap() {
 }
 
 function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
+    var la_fiesta = {lat: 31.947821, lng: 34.974092};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: la_fiesta,
