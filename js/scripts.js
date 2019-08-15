@@ -240,6 +240,7 @@ $(document).ready(function () {
         //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
         //     });
     });
+});
 /********************** Extras **********************/
 
 // Google map
