@@ -214,39 +214,32 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'e9c2aa999739'
-            && MD5($('#invite_code').val()) !== 'e9c2aa999739') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>מצטערים!</strong>הקוד הזמנה שהזנת אינו תקין.'));
-        } else {
-            var SCRIPT_URL = 'https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec';
 
-            $(document).ready(function() {
-                $.getJSON(SCRIPT_URL+"?callback=?",
-                    {
-                        name: document.getElementById("name").value,
-                        number: document.getElementById("extras").value,
-                        ride: document.getElementById("ride").value
-                        },
-                    function (data) {
-                        alert(JSON.stringify(data));
-                    });
-            });
+        var SCRIPT_URL = 'https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec';
 
-            // $.post('https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec', data)
-            //     .done(function (data) {
-            //         console.log(data);
-            //         $('#alert-wrapper').html('');
-            //         $('#rsvp-modal').modal('show');
-            //     })
-            //     .fail(function (data) {
-            //         console.log(data);
-            //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-            //     });
-        }
+        $(document).ready(function () {
+            $.getJSON(SCRIPT_URL + "?callback=?",
+                {
+                    name: document.getElementById("name").value,
+                    number: document.getElementById("extras").value,
+                    ride: document.getElementById("ride").value
+                },
+                function (data) {
+                    alert(JSON.stringify(data));
+                });
+        });
+
+        // $.post('https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec', data)
+        //     .done(function (data) {
+        //         console.log(data);
+        //         $('#alert-wrapper').html('');
+        //         $('#rsvp-modal').modal('show');
+        //     })
+        //     .fail(function (data) {
+        //         console.log(data);
+        //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+        //     });
     });
-
-});
-
 /********************** Extras **********************/
 
 // Google map
