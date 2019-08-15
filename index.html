@@ -409,22 +409,24 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <h3>What are you waiting for?</h3>
-                <p>We would greatly appreciate if you could RSVP before 1st of November '17</p>
+                <p>נשמח מאוד אם תאשרו את הגעתכם</p>
                 <form id="rsvp-form" class="rsvp-form"
                       action=""
                       method="POST">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Your email"
-                                                                     required>
+                                <i class="fa fa-envelope"></i><label for="ride">זקוקים להסעה?</label> <select id="ride" name="ride">
+                                <option value="jerusalem">כן, מירושלים</option>
+                                <option value="tlv">כן, מתל אביב</option>
+                                <option value="No">לא</option>
+                            </select>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
+                                <i class="fa fa-user"></i><label for="name">שם</label><input name="name" class="" id="name"
+                                                                 placeholder="name"
                                                                  required>
                             </div>
                         </div>
@@ -432,7 +434,9 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
+                                <i class="fa fa-users"></i>
+                                <label for="extras">כמה אנשים תגיעו (אנא סמנו 0 אם לא תגיעו):</label>
+                                <input type="number" id="extras" name="extras" class="" min="0"
                                                                   max="4"
                                                                   placeholder="Husband/Wife or kids"
                                                                   required>
@@ -440,8 +444,8 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
+                                <i class="fa fa-key"></i><label for="invite_code">קוד הזמנה</label> <input type="text" id="invite_code" name="invite_code"
+                                                                class=""
                                                                 placeholder="Invite code"
                                                                 required>
                             </div>
