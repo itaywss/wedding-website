@@ -219,7 +219,7 @@ $(document).ready(function () {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>מצטערים!</strong>הקוד הזמנה שהזנת אינו תקין.'));
         } else {
             var SCRIPT_URL = 'https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec';
-
+            alert('reached')
             $(document).ready(function() {
                 $.getJSON(SCRIPT_URL+"?callback=?",
                     {
@@ -231,6 +231,8 @@ $(document).ready(function () {
                         alert(JSON.stringify(data));
                     });
             });
+
+            alert('Also reached')
 
             // $.post('https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec', data)
             //     .done(function (data) {
