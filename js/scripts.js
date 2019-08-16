@@ -214,8 +214,8 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'e9c2aa999739'
-            && MD5($('#invite_code').val()) !== 'e9c2aa999739') {
+        if (MD5($('#invite_code').val()) !== 'c76f1118d4c4f3495f9622298535508f'
+            && MD5($('#invite_code').val()) !== 'c76f1118d4c4f3495f9622298535508f') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>מצטערים!</strong>הקוד הזמנה שהזנת אינו תקין.'));
         } else {
             var SCRIPT_URL = 'https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec';
