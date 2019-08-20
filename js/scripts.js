@@ -187,14 +187,20 @@ $(document).ready(function () {
             title: "Shahar and Dror's Wedding",
 
             // Event start date
-            start: new Date('Sep 18, 2019 19:00'),
+            start: {
+                'dateTime': '2019-09-18T19:00:00',
+                'timeZone': 'Israel/Jerusalem'
+                },
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Sep 18, 2019 00:00'),
+            end: {
+                'dateTime': '2019-09-19T01:00:00',
+                'timeZone': 'Israel/Jerusalem'
+            },
 
             // Event Address
             address: 'צל הדומים, נאות קדומים, יער בן שמן',
