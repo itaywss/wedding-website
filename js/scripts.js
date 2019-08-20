@@ -220,7 +220,7 @@ $(document).ready(function () {
             type: "post",
             data: data
         }).done(function (response, textStatus, jqXHR){
-            $('#alert-wrapper').html(alert_markup('info', '<strong>יסססס!</strong>שמרנו את אישור ההזמנה'));
+            $('#rsvp-modal').modal('show');
         }).fail(function (response, textStatus, jqXHR) {
             $('#alert-wrapper').html(alert_markup('info', '<strong>מצטערים!</strong>היתה שגיאה בשמירת אישור ההזמנה'));
         });
