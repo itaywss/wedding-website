@@ -175,44 +175,6 @@ $(document).ready(function () {
         $('#btn-show-content').toggleClass('toggle-map-content');
     });
 
-    /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
-        options: {
-            class: '',
-            // You can pass an ID. If you don't, one will be generated for you
-            id: ''
-        },
-        data: {
-            // Event title
-            title: "Shahar and Dror's Wedding",
-
-            // Event start date
-            start: {
-                'dateTime': '2019-09-18T19:00:00',
-                'timeZone': 'Israel/Jerusalem'
-                },
-
-            // Event duration (IN MINUTES)
-            // duration: 120,
-
-            // You can also choose to set an end time
-            // If an end time is set, this will take precedence over duration
-            end: {
-                'dateTime': '2019-09-19T01:00:00',
-                'timeZone': 'Israel/Jerusalem'
-            },
-
-            // Event Address
-            address: 'צל הדומים, נאות קדומים, יער בן שמן',
-
-            // Event Description
-            description: "בוא תשמחו איתנו!"
-        }
-    });
-
-    $('#add-to-cal').html(myCalendar);
-
-
     /********************** RSVP **********************/
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
