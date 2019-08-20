@@ -47,6 +47,9 @@
         justify-content: space-between;
         padding: 0px 4%;
     }
+    .rsvp {
+        padding-top: 170px;
+    }
 </style>
 <body id="top">
 <!--[if lt IE 8]>
@@ -264,10 +267,9 @@
             </div>
         </div>
     </div>
+
 </section>
-
 <section class="rsvp text-center" id="rsvp">
-
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -294,6 +296,13 @@
                       method="POST">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="name" id="name" type="text"
+                                                                 placeholder="שם"
+                                                                 required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
                             <div class="form-input-group blah">
                                 <i class="fa fa-bus"></i>
                                 <select id="ride" name="ride">
@@ -303,16 +312,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" id="name" type="text"
-                                                                 placeholder="שם"
-                                                                 required>
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8 col-sm-6">
+                        <div class="col-md-8 col-sm-6 col-md-push-2">
                             <div class="form-input-group">
                                 <i class="fa fa-users"></i>
                                 <input type="number" id="number" name="number" class="" min="0"
