@@ -212,39 +212,18 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>רק שניה!</strong> אנחנו שומרים את אישור ההזמנה.'));
 
-        if (MD5($('#invite_code').val()) !== 'c76f1118d4c4f3495f9622298535508f'
-            && MD5($('#invite_code').val()) !== 'c76f1118d4c4f3495f9622298535508f') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>מצטערים!</strong>הקוד הזמנה שהזנת אינו תקין.'));
-        } else {
-            var SCRIPT_URL = 'https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec';
-            alert('reached')
-            $(document).ready(function() {
-                $.getJSON(SCRIPT_URL+"?callback=?",
-                    {
-                        name: document.getElementById("name").value,
-                        number: document.getElementById("extras").value,
-                        ride: document.getElementById("ride").value
-                        },
-                    function (data) {
-                        alert(JSON.stringify(data));
-                    });
-            });
-
-            alert('Also reached')
-
-            // $.post('https://script.google.com/d/1svP9Kqr9NJOnXhNss5E5Dk2HogTfszUF2otJ4SllU508MXT2fVHXTvFC/exec', data)
-            //     .done(function (data) {
-            //         console.log(data);
-            //         $('#alert-wrapper').html('');
-            //         $('#rsvp-modal').modal('show');
-            //     })
-            //     .fail(function (data) {
-            //         console.log(data);
-            //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-            //     });
-        }
+        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxbd074oBLQ03tm7B3sa-kkgSFCRw-hH0tfxWNq5Sp5HJ9-d8Uh/exec';
+        $.ajax({
+            url: SCRIPT_URL,
+            type: "post",
+            data: data
+        }).done(function (response, textStatus, jqXHR){
+            $('#alert-wrapper').html(alert_markup('info', '<strong>יסססס!</strong>שמרנו את אישור ההזמנה'));
+        }).fail(function (response, textStatus, jqXHR) {
+            $('#alert-wrapper').html(alert_markup('info', '<strong>מצטערים!</strong>היתה שגיאה בשמירת אישור ההזמנה'));
+        });
     });
 
 });
